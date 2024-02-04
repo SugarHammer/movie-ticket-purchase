@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.film.mapper.ScheduleMapper">
+    <select id="selectByPage" resultType="Map" parameterType="String">
+        SELECT s.*, m.name as name, c.name as cinema_name
+        from schedule s
+                 left join movie m on s.movie_id = m.id
+                 left join cinema c on s.cinema_id = c.id
+        <if test="query != null and query != ''">
+            where m.name like '%${query}%'
+        </if>
+        order by CONCAT( s.show_date, ',', s.show_time ) desc
+    </select>
+    <select id="selectAllInfo" resultType="Map" parameterType="String">
+        SELECT
+            s.id AS id,
+            s.movie_id AS movie_id,
+            m.name AS movie_name,
+            m.poster AS poster,
+            s.show_date AS show_date,
+            m.score AS score,
+            m.wish_num AS wish_num,
+            m.actor as actor
+        FROM
+            SCHEDULE s
+                LEFT JOIN movie m ON s.movie_id = m.id
+        WHERE s.show_date >= DATE(CURRENT_DATE)
+        GROUP BY
+            movie_name
+    </select>
+    <select id="selectCinemaSchedule" resultType="Map" parameterType="integer">
+        SELECT
+            s.*,
+            m.name AS movie_name,
+            m.poster AS poster,
+            m.movie_long AS movie_long,
+            m.score AS score,
+            m.actor AS actor,
+            m.type AS type
+        FROM
+            schedule s
+                LEFT JOIN movie m ON s.movie_id = m.id
+        WHERE
+            CONCAT( s.show_date, ',', s.show_time ) >= NOW()
+          AND s.cinema_id = #{cinemaId}
+        GROUP BY m.name
+        ORDER BY
+            CONCAT( s.show_date, ',', s.show_time )
+    </select>
+    <select id="selectCinemaMovie" resultType="Map" parameterType="integer">
+        SELECT
+            s.*,
+            m.movie_long AS movie_long,
+            m.language AS language
+        FROM
+            SCHEDULE s
+                LEFT JOIN movie m ON s.movie_id = m.id
+        WHERE CONCAT(s.show_date,',',s.show_time )
+           AND s.movie_id = #{movieId}
+          AND s.cinema_id = #{cinemaId}
+        ORDER BY
+            CONCAT(s.show_date,',',s.show_time )
+    </select>
+    <select id="selectMovieSchedule" resultType="Map" parameterType="integer">
+        SELECT
+            *
+        FROM
+            SCHEDULE s
+        WHERE
+            CONCAT( s.show_date, ',', s.show_time ) >= NOW()
+          AND s.movie_id = #{movieId}
+        GROUP BY
+            s.show_date
+        ORDER BY
+            s.show_date
+    </select>
+    <select id="selectMovieCinema" resultType="Map" parameterType="Map">
+        SELECT
+            s.*,
+            c.name AS name,
+            c.specified_address AS specified_address
+        FROM
+            SCHEDULE s
+                INNER JOIN cinema c ON s.cinema_id = c.id
+        WHERE
+            s.movie_id = #{movieId}
+          AND s.show_date = #{showDate}
+        GROUP BY
+            s.cinema_id
+    </select>
+    <select id="selectMovieByName" resultType="Map" parameterType="String">
+        SELECT
+            s.id AS id,
+            s.movie_id AS movie_id,
+            m.name AS movie_name,
+            m.poster AS poster,
+            s.show_date AS show_date,
+            m.score AS score,
+            m.wish_num AS wish_num,
+            m.actor AS actor
+        FROM
+            SCHEDULE s
+                LEFT JOIN movie m ON s.movie_id = m.id
+        WHERE
+          s.show_date >= DATE(CURRENT_DATE)
+          AND m.name LIKE '%${query}%'
+        GROUP BY
+            m.name
+        ORDER BY
+            s.show_date
+    </select>
+    <select id="selectCinemaByName" resultType="Map" parameterType="String">
+        SELECT
+            c.*
+        FROM
+            SCHEDULE s
+                LEFT JOIN cinema c ON s.cinema_id = c.id
+        WHERE
+            CONCAT( s.show_date, ',', s.show_time ) >= NOW()
+          AND c.name LIKE '%${query}%'
+        GROUP BY c.name
+        ORDER BY CONCAT( s.show_date, ',', s.show_time )
+    </select>
+</mapper>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.film.mapper.HallMapper">
+    <select id="selectByPage" resultType="Map" parameterType="String">
+        SELECT c.name as cinema_name, c.phone as cinema_phone,
+        h.name as name,h.id as id
+        from hall h,cinema c where h.cinema_id = c.id
+        <if test="query != null and query != ''">
+           and c.name like '%${query}%'
+        </if>
+        order by c.id
+    </select>
+</mapper>

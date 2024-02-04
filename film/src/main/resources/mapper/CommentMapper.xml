@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.film.mapper.CommentMapper">
+    <select id="selectAllByPage" resultType="Map" parameterType="String">
+        SELECT
+            c.*,
+            u.name as user_name,
+            m.name as movie_name
+        FROM
+            comment c
+                LEFT JOIN user u on c.user_id = u.id
+                LEFT JOIN movie m on c.movie_id = m.id
+        <if test="query != null and query != ''">
+            where u.name like '%${query}%'
+        </if>
+        order by c.comment_date desc
+    </select>
+    <select id="selectAll" resultType="Map" parameterType="integer">
+        SELECT
+            u.avatar AS avatar,
+            u.name AS name,
+            c.*
+        FROM
+            USER u
+                LEFT JOIN COMMENT c ON u.id = c.user_id
+        WHERE
+            c.movie_id = #{movieId}
+    </select>
+    <select id="selectWatchMovie" resultType="Map" parameterType="integer">
+        SELECT
+            c.*,
+            m.poster AS poster,
+            m.name AS name
+        FROM
+            COMMENT c
+                LEFT JOIN movie m ON c.movie_id = m.id
+        WHERE
+            user_id = #{userId}
+    </select>
+</mapper>

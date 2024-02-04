@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.film.mapper.OrderMapper">
+    <insert id="order" parameterType="Map">
+        INSERT INTO `order` ( `user_id`, `schedule_id`, `phone`, `order_date`, `num`, `price`, `seat_info`, `pay_type`, `phone_code` )
+        VALUES
+        (#{userId},#{scheduleId},#{phone},#{orderDate},#{num},#{price},#{seatInfo},#{payType},#{phoneCode})
+    </insert>
+    <select id="findUserOrder" resultType="Map" parameterType="integer">
+        SELECT
+            o.*,
+            s.hall_name as hall_name,
+            s.show_date as show_date,
+            s.show_time as show_time,
+            m.`name` AS movie_name,
+            m.poster as poster,
+            c.`name` AS cinema_name
+        FROM
+            `order` o
+                LEFT JOIN `schedule` s ON o.schedule_id = s.id
+                LEFT JOIN movie m ON s.movie_id = m.id
+                LEFT JOIN cinema c ON s.cinema_id = c.id
+        WHERE
+            o.user_id = #{userId}
+    </select>
+    <select id="selectAllOrder" resultType="Map" parameterType="String">
+        SELECT
+            o.*,u.`name` as user_name,m.`name` as movie_name,c.`name` as cinema_name
+        FROM
+            `order` o
+                LEFT JOIN `user` u ON o.user_id = u.id
+                LEFT JOIN `schedule` s on o.schedule_id = s.id
+                LEFT JOIN movie m on s.movie_id = m.id
+                LEFT JOIN cinema c on s.cinema_id = c.id
+        <if test="query != null and query != ''">
+            where u.name like '%${query}%'
+        </if>
+        ORDER BY o.order_date DESC
+    </select>
+    <delete id="deleteOrder" parameterType="integer">
+        DELETE FROM `order` o WHERE o.id = #{id}
+    </delete>
+
+</mapper>

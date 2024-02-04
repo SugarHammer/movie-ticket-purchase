@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.film.mapper.CinemaMapper">
+    <select id="selectAllCinema" resultType="Map">
+        SELECT
+            c.*
+        FROM
+            cinema c
+                LEFT JOIN schedule s ON s.cinema_id = c.id
+        WHERE
+            s.show_date >= DATE( CURRENT_DATE )
+        GROUP BY c.name
+    </select>
+</mapper>

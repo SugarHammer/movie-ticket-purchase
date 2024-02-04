@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.film.mapper.WishMovieMapper">
+    <select id="selectUserWishMovie" resultType="Map" parameterType="integer">
+        SELECT
+            w.*,
+            m.name AS movie_name,
+            m.poster AS poster,
+            m.score AS score,
+            m.wish_num AS wish_num,
+            m.actor AS actor,
+            m.public_date AS public_date
+        FROM
+            wishmovie w
+                LEFT JOIN movie m ON w.movie_id = m.id
+        WHERE
+            user_id = #{userId}
+    </select>
+</mapper>
