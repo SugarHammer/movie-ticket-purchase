@@ -58,7 +58,7 @@ export default {
 .login {
     width: 100%;
     height: 100%;
-    background: url('../assets/img/login.jpg');
+    background: url('../assets/img/bj.jpg');
     background-size: cover;
     display: flex;
     justify-content: center;

@@ -2,8 +2,8 @@
     <el-container class="home-container">
         <el-header>
             <div class="header_img">
-                <img src="../assets/img/tip.png" alt="">
-                <span>折月电影</span>
+                <img src="../assets/img/logo.png" alt="">
+                <span>肯尼基蛙电影</span>
             </div>
             <div style="display: flex">
                 <div class="user_avatar">

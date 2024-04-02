@@ -39,7 +39,7 @@
         </section>
         <section class="intro">
             <div class="title">简介</div>
-            <div class="content">
+            <div class="content" style="font-size: 10px;">
                 {{ movieInfo.intro }}
             </div>
         </section>

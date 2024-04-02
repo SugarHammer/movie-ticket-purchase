@@ -6,7 +6,7 @@
         <main class="login_main">
             <div class="login_header">
                 <span class="icon icon-film-logo"></span>
-                <p class="title">折月电影</p>
+                <p class="title">肯尼基蛙电影</p>
                 <i class="eng-title">Sora Movie</i>
             </div>
             <div class="login_content">
