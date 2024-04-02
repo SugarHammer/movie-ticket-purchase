@@ -16,20 +16,20 @@ SpringBoot + Mybatis + Vue + Mysql
 4.  数据驱动决策：系统收集的观影数据为电影院和制片方提供了宝贵的市场信息，有助于制定更精准的市场策略和影片推广计划。
 
 #### 功能概览图
-
+![输入图片说明](photo/%E5%8A%9F%E8%83%BD%E5%9B%BE.png)
 
 ### 演示截图
 #### 移动端首页功能
-
+![输入图片说明](photo/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%A6%96%E9%A1%B5%E5%8A%9F%E8%83%BD.gif)
 
 #### 移动端用户功能
-
+![输入图片说明](photo/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%94%A8%E6%88%B7%E5%8A%9F%E8%83%BD.gif)
 
 #### 后台管理员功能
-
+![输入图片说明](photo/%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E5%91%98%E5%8A%9F%E8%83%BD.gif)
 
 #### 代码数据库
-
+![输入图片说明](photo/%E4%BB%A3%E7%A0%81%E6%95%B0%E6%8D%AE%E5%BA%93.gif)
 
 ### 环境需求
 - idea/eclipse、jdk-1.8、maven-3.8.6、mysql、node.js
@@ -37,10 +37,11 @@ SpringBoot + Mybatis + Vue + Mysql
 ### 项目支持
 - 项目的发展，离不开大家得支持~！~
 - 也可以请作者喝一杯咖啡:)
-
+![输入图片说明](photo/0-%E5%BE%AE%E4%BF%A1_2.png)
+![输入图片说明](photo/0-%E6%94%AF%E4%BB%98%E5%AE%9D_2.png)
 
 ## 有项目修改、安装调试需求 请联系微信
-
+![输入图片说明](photo/0-WeChat.png)
 
 ## 其他项目定制加微☝☝☝
 
