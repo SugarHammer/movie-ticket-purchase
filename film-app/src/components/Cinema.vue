@@ -115,7 +115,7 @@ export default {
 
 .label_block span {
     padding: .06rem;
-    font-size: .2rem;
+    font-size: .5rem;
     border: .01rem solid #f90;
     margin-right: .4rem;
     border-radius: .04rem;

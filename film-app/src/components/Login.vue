@@ -296,7 +296,7 @@ form {
 
 .login_hint {
     color: #888;
-    font-size: .44rem;
+    font-size: .74rem;
     line-height: 20px;
 }
 

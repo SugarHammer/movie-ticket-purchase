@@ -314,7 +314,7 @@ export default {
                     margin-bottom .25rem
 
                 .address
-                    font-size .28rem
+                    font-size .78rem
                     height .3rem
                     margin-bottom .75rem
 
@@ -323,7 +323,7 @@ export default {
 
                     span
                         padding .06rem
-                        font-size .1rem
+                        font-size .7rem
                         border .01rem solid #f90
                         margin-right .2rem
                         border-radius .04rem

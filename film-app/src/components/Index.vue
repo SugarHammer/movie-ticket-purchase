@@ -41,7 +41,7 @@
                                 <span class="score" v-else>暂无评分</span>
                             </div>
                         </div>
-                        <van-button size="mini" color="red"
+                        <van-button style="border-radius: 10px" size="mini" color="red"
                                     @click="$router.push({path:'/select_cinema',query:{movie_id:item.movie_id}})">购买
                         </van-button>
                     </div>
@@ -73,7 +73,7 @@
                                                             }}月{{
                                                                 item.show_date.split('-')[2]
                                                             }}日</span>
-                                <van-button size="mini" type="info"
+                                <van-button style="border-radius: 10px" size="mini" type="info"
                                             @click="$router.push({path:'/select_cinema',query:{movie_id:item.movie_id}})">
                                     预售
                                 </van-button>
@@ -147,6 +147,7 @@ export default {
 }
 
 .op1 {
+    margin-top: 10px;
     display: flex;
     padding: .25rem 0 .8rem 1.25rem;
 }

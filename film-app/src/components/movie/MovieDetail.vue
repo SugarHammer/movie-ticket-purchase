@@ -293,7 +293,8 @@ export default {
 #movie-detail
     width 100%
     height 100%
-    background linear-gradient(to bottom, #ff6034 0%, #ee0a24 100%)
+    //background linear-gradient(to bottom, #ff6034 0%, #ee0a24 100%)
+    background linear-gradient(to bottom, #565656 0%, #ee0a01ad 100%)
     color #fff
 
     .top
@@ -525,6 +526,7 @@ export default {
                 font-size 1.25rem
 
     .buy
+        margin-bottom 15px
         position fixed
         bottom 0
         width 100%

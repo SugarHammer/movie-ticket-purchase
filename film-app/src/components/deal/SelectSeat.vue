@@ -366,7 +366,7 @@ export default {
                         margin-bottom .22rem
                     .price
                         color #dd2727
-                        font-size .24rem
+                        font-size .54rem
                 .right
                     font-size .25rem
 </style>
