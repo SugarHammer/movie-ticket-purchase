@@ -29,7 +29,7 @@ SpringBoot + Mybatis + Vue + Mysql
 #### 功能概览图
 ![输入图片说明](photo/%E5%8A%9F%E8%83%BD%E5%9B%BE.png)
 
-### 演示截图
+### 部分功能演示
 #### 移动端首页功能
 ![输入图片说明](photo/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%A6%96%E9%A1%B5%E5%8A%9F%E8%83%BD.gif)
 
